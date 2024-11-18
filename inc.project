@@ -1,0 +1,91 @@
+using System;
+
+namespace ZAIRA_PRINCE_FASHION_BOUTIQUE
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string boutiquename = "Zaira & Prince Fashion Boutique!";
+            Console.WriteLine("Welcome to {0}", boutiquename);
+
+            string[] mensclothes = { "Shirts", "Jeans", "Jackets", "T-shirts" };
+            int[] menprice = { 1300, 2500, 3800, 1200 };
+
+            string[] womenclothes = { "Blouses", "Skirt", "Dresses", "Tops" };
+            int[] womenprice = { 1600, 1800, 5000, 1500 };
+
+            string[] accessories = { "Belt", "Hat", "Sunglasses", "Watch" };
+            int[] accessoriesprice = { 580, 800, 1400, 2500 };
+
+            string[] sizes = { "Small", "Medium", "Large" };
+
+            int choice;
+            int item;
+            int size;
+            int quantity;
+            double totalprice;
+
+            do
+            {
+                Console.WriteLine("\nCategories:");
+                Console.WriteLine("1. Men's Clothes");
+                Console.WriteLine("2. Women's Clothes");
+                Console.WriteLine("3. Accessories");
+                Console.WriteLine("4. exit");
+                Console.Write("Choose a categories(1-4): ");
+                choice = Convert.ToInt32(Console.ReadLine());
+
+                switch (choice)
+                {
+                    case 1:
+                        Console.WriteLine("\nMen's Clothes:");
+                        for (int i = 0; i < mensclothes.Length; i++)
+                        {
+                            Console.WriteLine("{0}. {1} - P{2}", i + 1, mensclothes[i], menprice[i]);
+                        }
+                            Console.Write("Choose item (1-4): ");
+                            item = Convert.ToInt32(Console.ReadLine());
+                            
+                                Console.WriteLine("\nSizes:");
+                                for (int j = 0; j < sizes.Length; j++)
+                                {
+                                    Console.WriteLine("{0}. {1}", j + 1, sizes[j]);
+                                }
+                            Console.Write("Choose size: ");
+                            size = Convert.ToInt32(Console.ReadLine());
+                            
+                        Console.Write("Enter quantity: ");
+                        quantity = Convert.ToInt32(Console.ReadLine());
+
+                        totalprice = quantity * menprice[item-1];
+                        Console.WriteLine("Added: {0} x {1}({2}) - P{3}", quantity, mensclothes[item - 1], sizes[size - 1], totalprice);
+                        break;
+                    case 2:
+                        for (int i = 0; i < womenclothes.Length; i++)
+                        {
+                            Console.WriteLine("{0}. {1} - P{2}", i + 1, womenclothes[i], womenprice[i]);
+                        }
+                        Console.Write("Choose item (1-4): ");
+                        item = Convert.ToInt32(Console.ReadLine());
+                        
+                            Console.WriteLine("\nSizes:");
+                            for (int j = 0; j < sizes.Length; j++)
+                            {
+                                Console.WriteLine("{0}. {1}", j + 1, sizes[j]);
+                            }
+                            Console.Write("Choose size: ");
+                            size = Convert.ToInt32(Console.ReadLine());
+                        
+                        Console.Write("Enter quantity: ");
+                        quantity = Convert.ToInt32(Console.ReadLine());
+
+                        totalprice = quantity * womenprice[item - 1];
+                        Console.WriteLine("Added: {0} x {1}({2}) - P{3}", quantity, womenclothes[item - 1], sizes[size - 1], totalprice);
+                        break;
+                }
+            }
+            while (true);
+        }
+    }
+}
